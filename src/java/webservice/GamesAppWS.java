@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package web.service;
+package webservice;
 
+import com.google.gson.Gson;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
@@ -13,13 +9,14 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
+import webservice.entidade.Professor;
 
 /**
  * REST Web Service
  *
  * @author matheush
  */
-@Path("gamesapp")
+@Path("GamesApp")
 public class GamesAppWS {
 
     @Context
@@ -41,6 +38,23 @@ public class GamesAppWS {
         //TODO return proper representation object
 //        throw new UnsupportedOperationException();
         return "ws teste coisa linda";
+    }
+    
+    
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("Usuario/Professor/get")
+    public String getProfessor() {
+        Professor professor = new Professor();
+
+        professor.setEmail("teste@teste.com");
+        professor.setNome("Teste");
+        professor.setCodigoConfirmacao("AAB432");
+        professor.setId("adas123dasqwe");
+
+        //Converte objeto java para Json
+        Gson gson = new Gson();
+        return gson.toJson(professor);
     }
 
     /**
