@@ -1,4 +1,4 @@
-package webservice.entidade;
+package webservice.entidades.atividade;
 
 import java.util.Date;
 
@@ -8,12 +8,10 @@ import java.util.Date;
  */
 public class DadosAtividade {
     protected String data;
-    protected String nome;
     protected Endereco endereco;
 
-    public DadosAtividade(String data, String nome, Endereco endereco) {
+    public DadosAtividade(String data, Endereco endereco) {
         this.data = data;
-        this.nome = nome;
         this.endereco = endereco;
     }
 
@@ -25,14 +23,6 @@ public class DadosAtividade {
         this.data = data;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public Endereco getEndereco() {
         return endereco;
     }
@@ -40,6 +30,4 @@ public class DadosAtividade {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
-    
-    
 }

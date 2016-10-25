@@ -1,4 +1,4 @@
-package webservice.entidade;
+package webservice.entidades.pessoa;
 
 /**
  *

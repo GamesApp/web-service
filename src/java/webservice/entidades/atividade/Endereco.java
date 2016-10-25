@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package webservice.entidade;
+package webservice.entidades.atividade;
 
 /**
  *
@@ -62,6 +62,18 @@ public class Endereco {
 
     public void setReferencia(String referencia) {
         this.referencia = referencia;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("\n");
+        stringBuilder.append("\n" + rua);
+        stringBuilder.append(", " + numero);
+        stringBuilder.append(", " + complemento);
+        stringBuilder.append(", " + bairro);
+        
+        return stringBuilder.toString();
     }
     
     

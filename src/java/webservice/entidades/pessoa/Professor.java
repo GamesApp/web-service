@@ -1,4 +1,4 @@
-package webservice.entidade;
+package webservice.entidades.pessoa;
 
 /**
  *
@@ -52,5 +52,19 @@ public class Professor extends Pessoa {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+    
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("\n");
+        stringBuilder.append("\nPROFESSOR");
+        stringBuilder.append("\n" + nome);
+        stringBuilder.append("\n" + siape);
+        stringBuilder.append("\n" + email);
+        stringBuilder.append("\n" + codConfirmacao);
+        stringBuilder.append("\n" + senha);
+        
+        return stringBuilder.toString();
     }
 }

@@ -1,4 +1,4 @@
-package webservice.entidade;
+package webservice.entidades.atividade;
 
 /**
  *
@@ -38,4 +38,15 @@ public class Pontuacao {
     public void setTerceiro(long terceiro) {
         this.terceiro = terceiro;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("\n");
+        stringBuilder.append("\n1- " + primeiro);
+        stringBuilder.append("\n2- " + segundo);
+        stringBuilder.append("\n3- " + terceiro);
+        
+        return stringBuilder.toString();
+    } 
 }
