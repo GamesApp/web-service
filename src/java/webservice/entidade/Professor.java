@@ -4,26 +4,22 @@ package webservice.entidade;
  *
  * @author matheush
  */
-public class Professor {
-    private String id;
-    private String email;
-    private String nome;
-    private String codigoConfirmacao;
+public class Professor extends Pessoa {
+    private String siape;
 
-    public String getId() {
-        return id;
+    public Professor(String nome, String email, String codConfirmacao, String siape) {
+        super.nome = nome;
+        super.email = email;
+        super.codConfirmacao = codConfirmacao;
+        this.siape = siape;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getSiape() {
+        return siape;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setSiape(String siape) {
+        this.siape = siape;
     }
 
     public String getNome() {
@@ -34,11 +30,27 @@ public class Professor {
         this.nome = nome;
     }
 
-    public String getCodigoConfirmacao() {
-        return codigoConfirmacao;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCodigoConfirmacao(String codigoConfirmacao) {
-        this.codigoConfirmacao = codigoConfirmacao;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getCodConfirmacao() {
+        return codConfirmacao;
+    }
+
+    public void setCodConfirmacao(String codConfirmacao) {
+        this.codConfirmacao = codConfirmacao;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 }

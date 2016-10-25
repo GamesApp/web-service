@@ -9,7 +9,6 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
-import webservice.entidade.Professor;
 
 /**
  * REST Web Service
@@ -45,7 +44,7 @@ public class GamesAppWS {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("Usuario/Professor/get")
     public String getProfessor() {
-        Professor professor = new Professor();
+        /*Professor professor = new Professor();
 
         professor.setEmail("teste@teste.com");
         professor.setNome("Teste");
@@ -54,7 +53,8 @@ public class GamesAppWS {
 
         //Converte objeto java para Json
         Gson gson = new Gson();
-        return gson.toJson(professor);
+        return gson.toJson(professor);*/
+        return "coisa";
     }
 
     /**
