@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package webservice.entidades.atividade;
 
 /**
@@ -10,11 +5,11 @@ package webservice.entidades.atividade;
  * @author matheush
  */
 public class Endereco {
-    protected String rua;
-    protected String bairro;
-    protected long numero;
-    protected String complemento;
-    protected String referencia;
+    private String rua;
+    private String bairro;
+    private long numero;
+    private String complemento;
+    private String referencia;
 
     public Endereco(String rua, String bairro, long numero, String complemento, String referencia) {
         this.rua = rua;
@@ -74,7 +69,5 @@ public class Endereco {
         stringBuilder.append(", " + bairro);
         
         return stringBuilder.toString();
-    }
-    
-    
+    }  
 }

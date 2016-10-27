@@ -7,8 +7,8 @@ import java.util.Date;
  * @author matheush
  */
 public class DadosAtividade {
-    protected String data;
-    protected Endereco endereco;
+    private String data;
+    private Endereco endereco;
 
     public DadosAtividade(String data, Endereco endereco) {
         this.data = data;

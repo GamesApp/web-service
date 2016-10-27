@@ -5,9 +5,9 @@ package webservice.entidades.atividade;
  * @author matheush
  */
 public class Pontuacao {
-    protected long primeiro;
-    protected long segundo;
-    protected long terceiro;
+    private long primeiro;
+    private long segundo;
+    private long terceiro;
 
     public Pontuacao(long primeiro, long segundo, long terceiro) {
         this.primeiro = primeiro;
