@@ -15,6 +15,9 @@ public class DadosAtividade {
         this.endereco = endereco;
     }
 
+    public DadosAtividade() {
+    }
+
     public String getData() {
         return data;
     }

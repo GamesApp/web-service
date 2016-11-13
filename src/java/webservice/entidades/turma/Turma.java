@@ -1,5 +1,6 @@
 package webservice.entidades.turma;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import webservice.entidades.pessoa.Aluno;
 
@@ -7,7 +8,7 @@ import webservice.entidades.pessoa.Aluno;
  *
  * @author matheush
  */
-public class Turma {
+public class Turma implements Serializable {
     private String nome;
     private int anoInicio;
     private String curso;

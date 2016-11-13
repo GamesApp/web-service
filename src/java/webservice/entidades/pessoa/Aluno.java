@@ -1,10 +1,12 @@
 package webservice.entidades.pessoa;
 
+import java.io.Serializable;
+
 /**
  *
  * @author matheush
  */
-public class Aluno extends Pessoa {
+public class Aluno extends Pessoa implements Serializable {
     private String matricula;
 
     public Aluno(String nome, String email, String codConfirmacao, String matricula) {

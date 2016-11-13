@@ -1,13 +1,17 @@
 package webservice.entidades.atividade;
 
+import java.io.Serializable;
+
 /**
  *
  * @author matheush
  */
-public class Atividade {
+public class Atividade implements Serializable {
+    private String id;
     private String nome;
     private String hora;
     private String descricao;
+    private Classificacao classificacao;
     private Pontuacao pontuacao;
     private DadosAtividade dadosAtividade;
 
@@ -17,6 +21,17 @@ public class Atividade {
         this.descricao = descricao;
         this.pontuacao = pontuacao;
         this.dadosAtividade = dadosAtividade;
+    }
+
+    public Atividade() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -41,6 +56,14 @@ public class Atividade {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public Classificacao getClassificacao() {
+        return classificacao;
+    }
+
+    public void setClassificacao(Classificacao classificacao) {
+        this.classificacao = classificacao;
     }
 
     public Pontuacao getPontuacao() {
@@ -68,8 +91,9 @@ public class Atividade {
         stringBuilder.append("\nData: " + dadosAtividade.getData());
         stringBuilder.append("\nHora: " + hora);
         stringBuilder.append("\nEndereço: " + dadosAtividade.getEndereco().toString());
-        stringBuilder.append("\nReferência: " + dadosAtividade.getEndereco().getReferencia());
         stringBuilder.append("\nDescrição: " + descricao);
+        stringBuilder.append("\nClassificação: ");
+        stringBuilder.append("\n" + classificacao.toString());
         stringBuilder.append("\nPontuação:");
         stringBuilder.append("\n" + pontuacao.toString());
           
