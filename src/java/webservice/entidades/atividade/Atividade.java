@@ -7,31 +7,21 @@ import java.io.Serializable;
  * @author matheush
  */
 public class Atividade implements Serializable {
-    private String id;
     private String nome;
-    private String hora;
     private String descricao;
-    private Classificacao classificacao;
+    private String data;
+    private String hora;
+    private Endereco endereco;
     private Pontuacao pontuacao;
-    private DadosAtividade dadosAtividade;
+    private Classificacao classificacao;
 
-    public Atividade(String nome, String hora, String descricao, Pontuacao pontuacao, DadosAtividade dadosAtividade) {
+    public Atividade(String nome, String descricao, String data, String hora, Endereco endereco, Pontuacao pontuacao) {
         this.nome = nome;
-        this.hora = hora;
         this.descricao = descricao;
+        this.data = data;
+        this.hora = hora;
+        this.endereco = endereco;
         this.pontuacao = pontuacao;
-        this.dadosAtividade = dadosAtividade;
-    }
-
-    public Atividade() {
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getNome() {
@@ -40,14 +30,6 @@ public class Atividade implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-    
-    public String getHora() {
-        return hora;
-    }
-
-    public void setHora(String hora) {
-        this.hora = hora;
     }
 
     public String getDescricao() {
@@ -58,12 +40,28 @@ public class Atividade implements Serializable {
         this.descricao = descricao;
     }
 
-    public Classificacao getClassificacao() {
-        return classificacao;
+    public String getData() {
+        return data;
     }
 
-    public void setClassificacao(Classificacao classificacao) {
-        this.classificacao = classificacao;
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 
     public Pontuacao getPontuacao() {
@@ -74,12 +72,12 @@ public class Atividade implements Serializable {
         this.pontuacao = pontuacao;
     }
 
-    public DadosAtividade getDadosAtividade() {
-        return dadosAtividade;
+    public Classificacao getClassificacao() {
+        return classificacao;
     }
 
-    public void setDadosAtividade(DadosAtividade dadosAtividade) {
-        this.dadosAtividade = dadosAtividade;
+    public void setClassificacao(Classificacao classificacao) {
+        this.classificacao = classificacao;
     }
 
     @Override
@@ -88,9 +86,9 @@ public class Atividade implements Serializable {
         stringBuilder.append("\n");
         stringBuilder.append("\nATIVIDADE");
         stringBuilder.append("\nNome: " + nome);
-        stringBuilder.append("\nData: " + dadosAtividade.getData());
+        stringBuilder.append("\nData: " + data);
         stringBuilder.append("\nHora: " + hora);
-        stringBuilder.append("\nEndereço: " + dadosAtividade.getEndereco().toString());
+        stringBuilder.append("\nEndereço: " + endereco.toString());
         stringBuilder.append("\nDescrição: " + descricao);
         stringBuilder.append("\nClassificação: ");
         stringBuilder.append("\n" + classificacao.toString());

@@ -10,7 +10,7 @@ public class Endereco {
     private long numero;
     private String complemento;
 
-    public Endereco(String rua, String bairro, long numero, String complemento, String referencia) {
+    public Endereco(String rua, String bairro, long numero, String complemento) {
         this.rua = rua;
         this.bairro = bairro;
         this.numero = numero;
