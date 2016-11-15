@@ -16,17 +16,6 @@ public class Endereco {
         this.numero = numero;
         this.complemento = complemento;
     }
-
-    public Endereco(String endereco) {
-        String enderecoJunto = endereco;
-        String array[] = new String[4];
-        array = enderecoJunto.split(";");
-        
-        this.rua = array[0];
-        this.bairro = array[1];
-        this.numero = Long.parseLong(array[2]);
-        this.complemento = array[3];
-    }
     
     public String getRua() {
         return rua;
@@ -64,9 +53,9 @@ public class Endereco {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("" + rua);
-        stringBuilder.append(";" + numero);
-        stringBuilder.append(";" + complemento);
-        stringBuilder.append(";" + bairro);
+        stringBuilder.append(", " + numero);
+        stringBuilder.append(", " + complemento);
+        stringBuilder.append(", " + bairro);
         
         return stringBuilder.toString();
     }  
