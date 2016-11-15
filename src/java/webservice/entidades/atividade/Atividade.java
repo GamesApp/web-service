@@ -24,6 +24,9 @@ public class Atividade implements Serializable {
         this.pontuacao = pontuacao;
     }
 
+    public Atividade() {
+    }
+
     public String getNome() {
         return nome;
     }

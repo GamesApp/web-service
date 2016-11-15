@@ -15,6 +15,9 @@ public class Classificacao {
         this.terceiro = terceiro;
     }
 
+    public Classificacao() {
+    }
+
     public String getPrimeiro() {
         return primeiro;
     }

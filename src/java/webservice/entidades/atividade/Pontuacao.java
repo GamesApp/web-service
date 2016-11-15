@@ -15,6 +15,9 @@ public class Pontuacao {
         this.terceiro = terceiro;
     }
 
+    public Pontuacao() {
+    }
+
     public long getPrimeiro() {
         return primeiro;
     }

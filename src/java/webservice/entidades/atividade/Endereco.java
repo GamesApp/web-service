@@ -16,6 +16,9 @@ public class Endereco {
         this.numero = numero;
         this.complemento = complemento;
     }
+
+    public Endereco() {
+    }
     
     public String getRua() {
         return rua;

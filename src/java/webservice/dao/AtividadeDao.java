@@ -3,8 +3,13 @@ package webservice.dao;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
+import com.mongodb.DBCursor;
 import com.mongodb.Mongo;
+import java.util.ArrayList;
 import webservice.entidades.atividade.Atividade;
+import webservice.entidades.atividade.Classificacao;
+import webservice.entidades.atividade.Endereco;
+import webservice.entidades.atividade.Pontuacao;
 
 /**
  *
@@ -51,5 +56,51 @@ public class AtividadeDao {
         }
         
         dBCollection.insert(basicAtividade);
+    }
+    
+    public ArrayList<Atividade> findAll() {
+        ArrayList<Atividade> atividades = new ArrayList<>();
+        
+        DBCursor cursor = dBCollection.find();
+        while(cursor.hasNext()) {
+            
+            Atividade atividade = new Atividade();
+            BasicDBObject basicAtividade = (BasicDBObject) cursor.next();
+        
+            atividade.setNome(basicAtividade.getString("nome"));
+            atividade.setDescricao(basicAtividade.getString("descricao"));
+            atividade.setData(basicAtividade.getString("data"));
+            atividade.setHora(basicAtividade.getString("hora"));
+        
+            Endereco endereco = new Endereco();
+            BasicDBObject basicEndereco = (BasicDBObject) basicAtividade.get("endereco");
+            endereco.setRua(basicEndereco.getString("rua"));
+            endereco.setBairro(basicEndereco.getString("bairro"));
+            endereco.setNumero(basicEndereco.getLong("numero"));
+            endereco.setComplemento(basicEndereco.getString("complemento"));
+            atividade.setEndereco(endereco);
+        
+            Pontuacao pontuacao = new Pontuacao();
+            BasicDBObject basicPontuacao = (BasicDBObject) basicAtividade.get("pontuacao");
+            pontuacao.setPrimeiro(basicPontuacao.getLong("primeiro"));
+            pontuacao.setSegundo(basicPontuacao.getLong("segundo"));
+            pontuacao.setTerceiro(basicPontuacao.getLong("terceiro"));
+            atividade.setPontuacao(pontuacao);
+            
+            BasicDBObject basicClassificacao = (BasicDBObject) basicAtividade.get("classificacao");
+            if (basicClassificacao != null) {
+                Classificacao classificacao = new Classificacao();
+                System.out.println("Passei:" + atividade.getNome());
+                classificacao.setPrimeiro(basicClassificacao.getString("primeiro"));
+                classificacao.setSegundo(basicClassificacao.getString("segundo"));
+                classificacao.setTerceiro(basicClassificacao.getString("terceiro"));
+                atividade.setClassificacao(classificacao);
+            
+            }
+            
+            atividades.add(atividade);
+        }
+        
+        return atividades;
     }
 }
