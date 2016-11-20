@@ -8,12 +8,23 @@ import java.io.Serializable;
  */
 public class Aluno extends Pessoa implements Serializable {
     private String matricula;
-
+    
     public Aluno(String nome, String email, String codConfirmacao, String matricula) {
         super.nome = nome;
         super.email = email;
         super.codConfirmacao = codConfirmacao;
         this.matricula = matricula;
+    }
+
+    public Aluno(String id, String nome, String email, String codConfirmacao, String matricula) {
+        super.id = id;
+        super.nome = nome;
+        super.email = email;
+        super.codConfirmacao = codConfirmacao;
+        this.matricula = matricula;
+    }
+
+    public Aluno() {
     }
 
     public String getMatricula() {
@@ -22,6 +33,14 @@ public class Aluno extends Pessoa implements Serializable {
 
     public void setMatricula(String matricula) {
         this.matricula = matricula;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNome() {

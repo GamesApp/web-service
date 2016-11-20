@@ -9,17 +9,34 @@ import webservice.entidades.pessoa.Aluno;
  * @author matheush
  */
 public class Turma implements Serializable {
+    private String id;
     private String nome;
     private int anoInicio;
     private String curso;
     private long pontos;
-    private ArrayList<Aluno> alunos;
+    private ArrayList<String> alunos;
 
     public Turma(String nome, int anoInicio, String curso, long pontos) {
         this.nome = nome;
         this.anoInicio = anoInicio;
         this.curso = curso;
         this.pontos = pontos;
+    }
+    
+    public Turma(String id, String nome, int anoInicio, String curso, long pontos) {
+        this.id = id;
+        this.nome = nome;
+        this.anoInicio = anoInicio;
+        this.curso = curso;
+        this.pontos = pontos;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -54,11 +71,11 @@ public class Turma implements Serializable {
         this.pontos = pontos;
     }
 
-    public ArrayList<Aluno> getAlunos() {
+    public ArrayList<String> getAlunos() {
         return alunos;
     }
 
-    public void setAlunos(ArrayList<Aluno> alunos) {
+    public void setAlunos(ArrayList<String> alunos) {
         this.alunos = alunos;
     }
 
