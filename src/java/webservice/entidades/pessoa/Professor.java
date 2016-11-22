@@ -16,12 +16,7 @@ public class Professor extends Pessoa implements Serializable {
         this.siape = siape;
     }
 
-    public Professor(String id, String nome, String email, String codConfirmacao, String siape) {
-        super.id = id;
-        super.nome = nome;
-        super.email = email;
-        super.codConfirmacao = codConfirmacao;
-        this.siape = siape;
+    public Professor() {
     }
 
     public String getSiape() {

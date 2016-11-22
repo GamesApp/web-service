@@ -2,7 +2,6 @@ package webservice.entidades.turma;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import webservice.entidades.pessoa.Aluno;
 
 /**
  *
@@ -22,13 +21,8 @@ public class Turma implements Serializable {
         this.curso = curso;
         this.pontos = pontos;
     }
-    
-    public Turma(String id, String nome, int anoInicio, String curso, long pontos) {
-        this.id = id;
-        this.nome = nome;
-        this.anoInicio = anoInicio;
-        this.curso = curso;
-        this.pontos = pontos;
+
+    public Turma() {
     }
 
     public String getId() {

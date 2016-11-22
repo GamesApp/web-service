@@ -16,14 +16,6 @@ public class Aluno extends Pessoa implements Serializable {
         this.matricula = matricula;
     }
 
-    public Aluno(String id, String nome, String email, String codConfirmacao, String matricula) {
-        super.id = id;
-        super.nome = nome;
-        super.email = email;
-        super.codConfirmacao = codConfirmacao;
-        this.matricula = matricula;
-    }
-
     public Aluno() {
     }
 
