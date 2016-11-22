@@ -21,7 +21,7 @@ public class AlunoDao {
     public AlunoDao() {
         this.mongo = new Mongo("localhost" , 27017);
         this.db = mongo.getDB("GamesApp");
-        this.dBCollection = db.getCollection("Turma");
+        this.dBCollection = db.getCollection("Aluno");
     }
     
     public void insert(Aluno aluno) {
