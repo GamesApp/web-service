@@ -9,10 +9,9 @@ import java.io.Serializable;
 public class Professor extends Pessoa implements Serializable {
     private String siape;
 
-    public Professor(String nome, String email, String codConfirmacao, String siape) {
+    public Professor(String nome, String email, String siape) {
         super.nome = nome;
         super.email = email;
-        super.codConfirmacao = codConfirmacao;
         this.siape = siape;
     }
 
@@ -51,14 +50,6 @@ public class Professor extends Pessoa implements Serializable {
         this.email = email;
     }
 
-    public String getCodConfirmacao() {
-        return codConfirmacao;
-    }
-
-    public void setCodConfirmacao(String codConfirmacao) {
-        this.codConfirmacao = codConfirmacao;
-    }
-
     public String getSenha() {
         return senha;
     }
@@ -75,7 +66,6 @@ public class Professor extends Pessoa implements Serializable {
         stringBuilder.append("\n" + nome);
         stringBuilder.append("\n" + siape);
         stringBuilder.append("\n" + email);
-        stringBuilder.append("\n" + codConfirmacao);
         stringBuilder.append("\n" + senha);
         
         return stringBuilder.toString();

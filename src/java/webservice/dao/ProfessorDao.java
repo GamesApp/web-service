@@ -6,6 +6,7 @@ import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.Mongo;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 import org.bson.types.ObjectId;
 import webservice.entidades.pessoa.Professor;
 
@@ -33,6 +34,25 @@ public class ProfessorDao {
         basicProfessor.put("senha", professor.getSenha());
         
         dBCollection.insert(basicProfessor);
+    }
+    
+    public Professor findLogin(String queryPesquisa) {
+        BasicDBObject basicProfessorQuery = new BasicDBObject();
+        //O código abaixo faz o método find virar case insensitive
+        basicProfessorQuery.put("email", Pattern.compile(".*" + queryPesquisa + ".*" , Pattern.CASE_INSENSITIVE));
+        
+        DBCursor cursor = dBCollection.find(basicProfessorQuery);
+        Professor professor = new Professor();
+        while(cursor.hasNext()) { 
+            BasicDBObject basicProfessor = (BasicDBObject) cursor.next();
+            professor.setId(basicProfessor.getString("_id"));
+            professor.setNome(basicProfessor.getString("nome"));
+            professor.setEmail(basicProfessor.getString("email"));
+            professor.setSenha(basicProfessor.getString("senha"));
+            professor.setSiape(basicProfessor.getString("siape"));
+        }
+        
+        return professor;
     }
     
     public ArrayList<Professor> findAll() {
