@@ -36,10 +36,13 @@ public class ProfessorDao {
         dBCollection.insert(basicProfessor);
     }
     
-    public Professor findLogin(String queryPesquisa) {
+    public Professor findLogin(String queryEmail, String querySenha) {
         BasicDBObject basicProfessorQuery = new BasicDBObject();
         //O código abaixo faz o método find virar case insensitive
-        basicProfessorQuery.put("email", Pattern.compile(".*" + queryPesquisa + ".*" , Pattern.CASE_INSENSITIVE));
+        basicProfessorQuery.put("email", Pattern.compile(".*" + queryEmail + ".*" , Pattern.CASE_INSENSITIVE));
+        basicProfessorQuery.put("senha", querySenha);
+        
+        System.out.println("Senha dao: " + querySenha);
         
         DBCursor cursor = dBCollection.find(basicProfessorQuery);
         Professor professor = new Professor();

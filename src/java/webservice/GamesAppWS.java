@@ -53,20 +53,22 @@ public class GamesAppWS {
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("Professor/login/{email}")
-    public String getProfessorLogin(@PathParam("email") String email) {
+    @Path("Professor/login/{email}/{senha}")
+    public String getProfessorLogin(@PathParam("email") String email,
+            @PathParam("senha") String senha) {
         Professor professor;
+
+        System.out.println("Senha entrada: " + senha);
+        professor = new ProfessorDao().findLogin(email, senha);
         
-        professor = new ProfessorDao().findLogin(email);
-        
-        if (professor != null) {
+        if (!professor.equals("")) {
             Gson gson = new Gson();
             return gson.toJson(professor);
         } else {
-            return "Professor inexistente";
+            return "Inexistente";
         }
     }
-    
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("Aluno/login/{email}")
@@ -75,11 +77,11 @@ public class GamesAppWS {
         
         aluno = new AlunoDao().findLogin(email);
         
-        if (aluno != null) {
+        if (!aluno.equals("")) {
             Gson gson = new Gson();
             return gson.toJson(aluno);
         } else {
-            return "Professor inexistente";
+            return "Inexistente";
         }
     }
     
