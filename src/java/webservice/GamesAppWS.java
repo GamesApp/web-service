@@ -71,11 +71,12 @@ public class GamesAppWS {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("Aluno/login/{email}")
-    public String getAluno(@PathParam("email") String email) {
+    @Path("Aluno/login/{email}/{senha}")
+    public String getAlunoLogin(@PathParam("email") String email,
+            @PathParam("senha") String senha) {
         Aluno aluno;
         
-        aluno = new AlunoDao().findLogin(email);
+        aluno = new AlunoDao().findLogin(email, senha);
         
         if (!aluno.equals("")) {
             Gson gson = new Gson();

@@ -36,10 +36,11 @@ public class AlunoDao {
         dBCollection.insert(basicAluno);
     }
     
-    public Aluno findLogin(String queryPesquisa) {
+    public Aluno findLogin(String queryEmail, String querySenha) {
         BasicDBObject basicAlunoQuery = new BasicDBObject();
         //O código abaixo faz o método find virar case insensitive
-        basicAlunoQuery.put("email", Pattern.compile(".*" + queryPesquisa + ".*" , Pattern.CASE_INSENSITIVE));
+        basicAlunoQuery.put("email", Pattern.compile(".*" + queryEmail + ".*" , Pattern.CASE_INSENSITIVE));
+        basicAlunoQuery.put("senha", querySenha);
         
         DBCursor cursor = dBCollection.find(basicAlunoQuery);
         Aluno aluno = new Aluno();

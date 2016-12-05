@@ -42,8 +42,6 @@ public class ProfessorDao {
         basicProfessorQuery.put("email", Pattern.compile(".*" + queryEmail + ".*" , Pattern.CASE_INSENSITIVE));
         basicProfessorQuery.put("senha", querySenha);
         
-        System.out.println("Senha dao: " + querySenha);
-        
         DBCursor cursor = dBCollection.find(basicProfessorQuery);
         Professor professor = new Professor();
         while(cursor.hasNext()) { 
