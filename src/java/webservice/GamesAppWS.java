@@ -97,6 +97,17 @@ public class GamesAppWS {
         }
     }
     
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("Aluno/insert")
+    public void insertAluno(String alunoJson) {
+        Gson gson = new Gson();
+        
+        Aluno aluno = (Aluno) gson.fromJson(alunoJson, Aluno.class);
+        
+        new AlunoDao().insert(aluno);
+    }
+    
     /*@GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("Turma/get/{turma}")
