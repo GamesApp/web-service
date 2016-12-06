@@ -95,18 +95,19 @@ public class Atividade implements Serializable {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("\n");
         stringBuilder.append("\nATIVIDADE");
         stringBuilder.append("\nNome: " + nome);
         stringBuilder.append("\nData: " + data);
         stringBuilder.append("\nHora: " + hora);
         stringBuilder.append("\nEndereço: " + endereco.toString());
         stringBuilder.append("\nDescrição: " + descricao);
-        stringBuilder.append("\nClassificação: ");
-        stringBuilder.append("\n" + classificacao.toString());
+        if (classificacao != null) {
+            stringBuilder.append("\nClassificação: ");
+            stringBuilder.append(classificacao.toString());  
+        }
         stringBuilder.append("\nPontuação:");
-        stringBuilder.append("\n" + pontuacao.toString());
-          
+        stringBuilder.append(pontuacao.toString());
+                  
         return stringBuilder.toString();
     }
 }
