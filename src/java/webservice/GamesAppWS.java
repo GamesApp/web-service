@@ -68,6 +68,17 @@ public class GamesAppWS {
             return "Inexistente";
         }
     }
+    
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("Professor/insert")
+    public void insertProfessor(String professorJson) {
+        Gson gson = new Gson();
+        
+        Professor professor = (Professor) gson.fromJson(professorJson, Professor.class);
+        
+        new ProfessorDao().insert(professor);
+    }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -130,6 +141,17 @@ public class GamesAppWS {
         
         Gson gson = new Gson();
         return gson.toJson(atividades);
+    }
+    
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("Atividade/insert")
+    public void insertAtividade(String atividadeJson) {
+        Gson gson = new Gson();
+        
+        Atividade atividade = (Atividade) gson.fromJson(atividadeJson, Atividade.class);
+        
+        new AtividadeDao().insert(atividade);
     }
     
     /**
