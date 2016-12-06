@@ -59,7 +59,7 @@ public class TurmaDao {
         return turmas;
     }
     
-    public ArrayList<Turma> find(String queryPesquisa) {
+    /*public ArrayList<Turma> find(String queryPesquisa) {
         ArrayList<Turma> turmas = new ArrayList<>();
         
         BasicDBObject basicTurmaQuery = new BasicDBObject();
@@ -82,7 +82,7 @@ public class TurmaDao {
         }
         
         return turmas;
-    }
+    }*/
     
     public void delete(String id) {
         BasicDBObject objectTurma = new BasicDBObject();

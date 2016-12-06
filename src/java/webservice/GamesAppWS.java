@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -58,7 +59,6 @@ public class GamesAppWS {
             @PathParam("senha") String senha) {
         Professor professor;
 
-        System.out.println("Senha entrada: " + senha);
         professor = new ProfessorDao().findLogin(email, senha);
         
         if (!professor.equals("")) {
@@ -86,10 +86,24 @@ public class GamesAppWS {
         }
     }
     
+    /*@GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("Turma/get/{turma}")
+    public String getTurma(@PathParam("turma") String turma) {
+        ArrayList<Turma> turmas;
+        
+        //Tratar pelo nome abreviado INF2013
+        
+        turmas = new TurmaDao().findAll();
+        
+        Gson gson = new Gson();
+        return gson.toJson(turmas);
+    }*/
+    
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("Turma/get/todas")
-    public String getTurma() {
+    public String getTurmaLista() {
         ArrayList<Turma> turmas;
         
         turmas = new TurmaDao().findAll();
@@ -125,5 +139,14 @@ public class GamesAppWS {
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public void putJson(String content) {
+    }
+    
+    @DELETE
+    @Path("Atividade/delete/{id}")
+    public boolean deteleAtividade(@PathParam("id") String id) {
+        
+        new AtividadeDao().delete(id);
+        
+        return true;
     }
 }
