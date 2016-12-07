@@ -133,6 +133,18 @@ public class GamesAppWS {
         Gson gson = new Gson();
         return gson.toJson(turmas);
     }
+    
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("Turma/insert")
+    public void insertTurma(String turmaJson) {
+        Gson gson = new Gson();
+        
+        Turma turma = (Turma) gson.fromJson(turmaJson, Turma.class);
+        
+        new TurmaDao().insert(turma);
+    }
+    
     /*
     @GET
     @Produces(MediaType.APPLICATION_JSON)

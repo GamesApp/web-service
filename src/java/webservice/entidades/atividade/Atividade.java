@@ -8,6 +8,7 @@ import java.io.Serializable;
  */
 public class Atividade implements Serializable {
     private String id;
+    private String situacao;
     private String nome;
     private String descricao;
     private String data;
@@ -34,6 +35,14 @@ public class Atividade implements Serializable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(String situacao) {
+        this.situacao = situacao;
     }
 
     public String getNome() {

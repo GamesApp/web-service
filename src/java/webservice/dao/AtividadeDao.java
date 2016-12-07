@@ -31,6 +31,7 @@ public class AtividadeDao {
     public void insert(Atividade atividade) {
         BasicDBObject basicAtividade = new BasicDBObject();
         
+        basicAtividade.put("situacao", atividade.getSituacao());
         basicAtividade.put("nome", atividade.getNome());
         basicAtividade.put("descricao", atividade.getDescricao());
         basicAtividade.put("data", atividade.getData());
@@ -69,6 +70,7 @@ public class AtividadeDao {
             BasicDBObject basicAtividade = (BasicDBObject) cursor.next();
         
             atividade.setId(basicAtividade.getString("_id"));
+            atividade.setSituacao(basicAtividade.getString("situacao"));
             atividade.setNome(basicAtividade.getString("nome"));
             atividade.setDescricao(basicAtividade.getString("descricao"));
             atividade.setData(basicAtividade.getString("data"));
@@ -117,6 +119,7 @@ public class AtividadeDao {
             BasicDBObject basicAtividade = (BasicDBObject) cursor.next();
         
             atividade.setId(basicAtividade.getString("_id"));
+            atividade.setSituacao(basicAtividade.getString("situacao"));
             atividade.setNome(basicAtividade.getString("nome"));
             atividade.setDescricao(basicAtividade.getString("descricao"));
             atividade.setData(basicAtividade.getString("data"));
@@ -163,6 +166,7 @@ public class AtividadeDao {
         basicAlterar.put("_id", new ObjectId(id));
         
         BasicDBObject basicAlteracoes = new BasicDBObject();
+        basicAlteracoes.put("situacao", atividade.getSituacao());
         basicAlteracoes.put("nome", atividade.getNome());
         basicAlteracoes.put("descricao", atividade.getDescricao());
         basicAlteracoes.put("data", atividade.getData());
