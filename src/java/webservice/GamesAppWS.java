@@ -69,6 +69,22 @@ public class GamesAppWS {
         }
     }
     
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("Professor/recuperacao/{email}")
+    public String getProfessorRecuperacao(@PathParam("email") String email) {
+        Professor professor;
+
+        professor = new ProfessorDao().getSenhaLogin(email);
+        
+        if (!professor.equals("")) {
+            Gson gson = new Gson();
+            return gson.toJson(professor);
+        } else {
+            return "Inexistente";
+        }
+    }
+    
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("Professor/insert")
