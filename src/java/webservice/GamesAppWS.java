@@ -79,6 +79,17 @@ public class GamesAppWS {
         
         new ProfessorDao().insert(professor);
     }
+    
+    @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("Professor/alterar")
+    public void alterarProfessor(String professorJson) {
+        Gson gson = new Gson();
+        
+        Professor professor = (Professor) gson.fromJson(professorJson, Professor.class);
+        
+        new ProfessorDao().update(professor.getId(), professor);
+    }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -106,6 +117,17 @@ public class GamesAppWS {
         Aluno aluno = (Aluno) gson.fromJson(alunoJson, Aluno.class);
         
         new AlunoDao().insert(aluno);
+    }
+    
+    @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("Aluno/alterar")
+    public void alterarAluno(String alunoJson) {
+        Gson gson = new Gson();
+        
+        Aluno aluno = (Aluno) gson.fromJson(alunoJson, Aluno.class);
+        
+        new AlunoDao().update(aluno.getId(), aluno);
     }
     
     /*@GET
@@ -145,6 +167,26 @@ public class GamesAppWS {
         new TurmaDao().insert(turma);
     }
     
+    @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("Turma/alterar")
+    public void alterarTurma(String turmaJson) {
+        Gson gson = new Gson();
+        
+        Turma turma = (Turma) gson.fromJson(turmaJson, Turma.class);
+        
+        new TurmaDao().update(turma.getId(), turma);
+    }
+    
+    @DELETE
+    @Path("Turma/delete/{id}")
+    public boolean deteleTurma(@PathParam("id") String id) {
+        
+        new TurmaDao().delete(id);
+        
+        return true;
+    }
+    
     /*
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -177,13 +219,15 @@ public class GamesAppWS {
         new AtividadeDao().insert(atividade);
     }
     
-    /**
-     * PUT method for updating or creating an instance of GamesAppWS
-     * @param content representation for the resource
-     */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public void putJson(String content) {
+    @Path("Atividade/alterar")
+    public void alterarAtividade(String atividadeJson) {
+        Gson gson = new Gson();
+        
+        Atividade atividade = (Atividade) gson.fromJson(atividadeJson, Atividade.class);
+        
+        new AtividadeDao().update(atividade.getId(), atividade);
     }
     
     @DELETE
