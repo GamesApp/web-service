@@ -50,13 +50,19 @@ public class AtividadeDao {
         basicPontuacao.put("terceiro", atividade.getPontuacao().getTerceiro());
         basicAtividade.put("pontuacao", basicPontuacao);
         
-        if (atividade.getClassificacao() != null) {
+        //if (atividade.getSituacao().equals("")) {
+        //    BasicDBObject basicClassificacao = new BasicDBObject();
+        //    basicClassificacao.put("primeiro", "");
+        //    basicClassificacao.put("segundo", "");
+        //    basicClassificacao.put("terceiro", "");
+        //    basicAtividade.put("classificacao", basicClassificacao);
+        //} else {
             BasicDBObject basicClassificacao = new BasicDBObject();
             basicClassificacao.put("primeiro", atividade.getClassificacao().getPrimeiro());
             basicClassificacao.put("segundo", atividade.getClassificacao().getSegundo());
             basicClassificacao.put("terceiro", atividade.getClassificacao().getTerceiro());
             basicAtividade.put("classificacao", basicClassificacao);
-        }
+        //}
         
         dBCollection.insert(basicAtividade);
     }
@@ -92,14 +98,12 @@ public class AtividadeDao {
             atividade.setPontuacao(pontuacao);
             
             BasicDBObject basicClassificacao = (BasicDBObject) basicAtividade.get("classificacao");
-            if (basicClassificacao != null) {
-                Classificacao classificacao = new Classificacao();
-                classificacao.setPrimeiro(basicClassificacao.getString("primeiro"));
-                classificacao.setSegundo(basicClassificacao.getString("segundo"));
-                classificacao.setTerceiro(basicClassificacao.getString("terceiro"));
-                atividade.setClassificacao(classificacao);
-            }
-                        
+            Classificacao classificacao = new Classificacao();
+            classificacao.setPrimeiro(basicClassificacao.getString("primeiro"));
+            classificacao.setSegundo(basicClassificacao.getString("segundo"));
+            classificacao.setTerceiro(basicClassificacao.getString("terceiro"));
+            atividade.setClassificacao(classificacao);
+                                    
             atividades.add(atividade);
         }
         
@@ -141,14 +145,12 @@ public class AtividadeDao {
             atividade.setPontuacao(pontuacao);
             
             BasicDBObject basicClassificacao = (BasicDBObject) basicAtividade.get("classificacao");
-            if (basicClassificacao != null) {
-                Classificacao classificacao = new Classificacao();
-                classificacao.setPrimeiro(basicClassificacao.getString("primeiro"));
-                classificacao.setSegundo(basicClassificacao.getString("segundo"));
-                classificacao.setTerceiro(basicClassificacao.getString("terceiro"));
-                atividade.setClassificacao(classificacao);
-            }
-            
+            Classificacao classificacao = new Classificacao();
+            classificacao.setPrimeiro(basicClassificacao.getString("primeiro"));
+            classificacao.setSegundo(basicClassificacao.getString("segundo"));
+            classificacao.setTerceiro(basicClassificacao.getString("terceiro"));
+            atividade.setClassificacao(classificacao);
+                                    
             atividades.add(atividade);
         }
         
@@ -185,13 +187,11 @@ public class AtividadeDao {
         basicPontuacao.put("terceiro", atividade.getPontuacao().getTerceiro());
         basicAlteracoes.put("pontuacao", basicPontuacao);
         
-        if (atividade.getClassificacao() != null) {
-            BasicDBObject basicClassificacao = new BasicDBObject();
-            basicClassificacao.put("primeiro", atividade.getClassificacao().getPrimeiro());
-            basicClassificacao.put("segundo", atividade.getClassificacao().getSegundo());
-            basicClassificacao.put("terceiro", atividade.getClassificacao().getTerceiro());
-            basicAlteracoes.put("classificacao", basicClassificacao);
-        }
+        BasicDBObject basicClassificacao = new BasicDBObject();
+        basicClassificacao.put("primeiro", atividade.getClassificacao().getPrimeiro());
+        basicClassificacao.put("segundo", atividade.getClassificacao().getSegundo());
+        basicClassificacao.put("terceiro", atividade.getClassificacao().getTerceiro());
+        basicAlteracoes.put("classificacao", basicClassificacao);
         
         dBCollection.update(basicAlterar, basicAlteracoes);
     }

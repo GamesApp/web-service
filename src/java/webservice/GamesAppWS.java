@@ -124,6 +124,22 @@ public class GamesAppWS {
         }
     }
     
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("Aluno/recuperacao/{email}")
+    public String getAlunoLogin(@PathParam("email") String email) {
+        Aluno aluno;
+        
+        aluno = new AlunoDao().findLogin(email);
+        
+        if (!aluno.equals("")) {
+            Gson gson = new Gson();
+            return gson.toJson(aluno);
+        } else {
+            return "Inexistente";
+        }
+    }
+    
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("Aluno/insert")

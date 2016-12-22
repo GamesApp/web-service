@@ -36,6 +36,25 @@ public class AlunoDao {
         dBCollection.insert(basicAluno);
     }
     
+    public Aluno findLogin(String queryEmail) {
+        BasicDBObject basicAlunoQuery = new BasicDBObject();
+        //O código abaixo faz o método find virar case insensitive
+        basicAlunoQuery.put("email", Pattern.compile(".*" + queryEmail + ".*" , Pattern.CASE_INSENSITIVE));
+        
+        DBCursor cursor = dBCollection.find(basicAlunoQuery);
+        Aluno aluno = new Aluno();
+        while(cursor.hasNext()) { 
+            BasicDBObject basicAluno = (BasicDBObject) cursor.next();
+            aluno.setId(basicAluno.getString("_id"));
+            aluno.setNome(basicAluno.getString("nome"));
+            aluno.setEmail(basicAluno.getString("email"));
+            aluno.setSenha(basicAluno.getString("senha"));
+            aluno.setMatricula(basicAluno.getString("matricula"));
+        }
+        
+        return aluno;
+    }
+    
     public Aluno findLogin(String queryEmail, String querySenha) {
         BasicDBObject basicAlunoQuery = new BasicDBObject();
         //O código abaixo faz o método find virar case insensitive
